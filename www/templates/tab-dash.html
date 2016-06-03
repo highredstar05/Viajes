@@ -1,0 +1,60 @@
+<!--
+  This template loads for the 'tab.friend-detail' state (app.js)
+  'friend' is a $scope variable created in the FriendsCtrl controller (controllers.js)
+  The FriendsCtrl pulls data from the Friends service (service.js)
+  The Friends service returns an array of friend data
+-->
+<ion-view view-title="Captura">
+  <ion-content class="padding">
+    
+    <form name="agregarForm" novalidate>
+    <div class="list">
+    <label class="item item-input">
+      <span class="input-label">Origen</span>
+      <input type="text" name="origen"  ng-model="viaje[0].origen" required>
+   </label>
+   
+   <label class="item item-input">
+      <span class="input-label">Destino</span>
+      <input type="text" name="destino" ng-model="viaje[0].destino" required>
+   </label>
+   
+   <label class="item item-input">
+      <span class="input-label">Fecha de Inicio</span>
+      <input type="tel" name="fecha_inicio" ng-model="viaje[0].fecha_inicio"  required>
+   </label>
+   
+   <label class="item item-input">
+      <span class="input-label">Fecha de Regreso</span>
+      <input type="text" name="fecha_regreso" ng-model="viaje[0].fecha_regreso" required>
+   </label>
+   <label class="item item-input">
+      <span class="input-label">Numero de Personas</span>
+      <input type="text" name="personas" ng-model="viaje[0].personas" required>
+   </label>
+   <label class="item item-input">
+      <span class="input-label">Costo</span>
+      <input type="text" name="costo" ng-model="viaje[0].costo" required>
+   </label>
+   </div>
+   
+   <div class="padding">
+        <p ng-show="agregarForm.origen.$error.required">Escriba el origen</p>
+        <p ng-show="agregarForm.destino.$error.required">Escriba el destino</p>
+        <p ng-show="agregarForm.fecha_inicio.$error.required">Escriba la fecha de inicio</p>
+        <p ng-show="agregarForm.fecha_regreso.$error.required">Escriba la fecha de regreso</p>
+        <p ng-show="agregarForm.personas.$error.required">Escriba la cantidad de personas</p>
+        <p ng-show="agregarForm.costo.$error.required">Escriba el costo</p>
+        <p>{{ statusMessage }}</p>
+    </div>
+    
+    <input type="hidden" name="id" ng-model="viaje[0].id">
+   
+   <button type="button" class="button icon-left ion-compose button-positive" ng-disabled="agregarForm.$invalid" ng-click="guardar(viaje[0])">
+      Guardar
+   </button>
+   
+   </form>
+    
+  </ion-content>
+</ion-view>
